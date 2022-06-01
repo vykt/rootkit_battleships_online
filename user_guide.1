@@ -1,0 +1,66 @@
+.TH Battleships_Online.sh(1)
+
+.Sh NAME
+.B Battleships_Online.sh
+- Command line battleships against a very turing incomplete bot.
+
+.SH SYNOPSIS
+.B /bin/sh ./scripts/Battleships_Online.sh
+
+.SH DESCRIPTION
+ 
+Battleships Online is a command line replicate of the tabletop game going by the same name. The game is played on a 2 dimensional grid. X coordinates are represented by letters, while Y coordinates are represented by numbers. There are currently 6 ships per player in each game, ranging from Patrol Boats to Aircraft Carriers. The game is played by navigating a series of menues. At each menu, the player is presented with a list of commands they can enter to set up or play the game. Commands are entered into a prompt on the bottom of the screen. Invalid inputs are ignored. 
+
+
+.SH CONNECTING TO OTHER PLAYERS
+
+In Battleships Online, players are given the option to host or join a game. To host a game, players must choose the 'host' after choosing 'play'. When hosting, users must provide an IPv4 address and port to listen for. To accept a connection from any address, the address of '0.0.0.0' may be specified. The hosting player may then wait for another player to connect to them to begin the game.
+
+Joining players must select the 'join' option. Such users must then enter the address of the host they wish to connect to, as well as the port they are listening on. The host must be ready and listening before the joining player attempts to connect.
+
+
+.SH GENERATING THE MAP
+
+The hosting player may determine the map size of the game. Currently supported sizes range from 9 to 12 in both X and Y dimensions. Should the player enter values outside this range, Battleships Online will randomly generate new map dimensions that fit this range.
+
+
+.SH PLACING DOWN SHIPS
+
+Ships are placed down in the order from largest to smallest. Ships can be placed horizontally or vertically. To place down a ship, the command
+
+.B\t\tplace <X> <Y>
+
+is used. It should be noted that only a single tile is specified when placing down a ship, even though ships are always greater in size than one tile. When ships are placed horizontally, the remaining tiles are placed to the right of the tile specified by 'place'. When ships are placed down vertically, the remaining tiles are placed below the tile specified by 'place'. For example, a ship of size 3, placed horizontally on tile A 3 using the command
+
+.B\t\tplace A 3
+
+will occupy the tiles A 3, A 4 and A 5.
+
+
+.SH PLAYING THE GAME
+
+The player can view their own map, as well as the map of their enemy using
+
+.B\t\tmap_ally\t\tmap_enemy
+
+respectively. To attack an enemy ship, the command
+
+.B\t\tattack <X> <Y>
+
+is used. The player can only attack tiles that they have not attempted to attack previously. The game is won once of the players runs out of ship tiles that haven't been attacked. The hosting player moves first.
+
+
+.SH SEE ALSO
+.BR Battleships_Online.sh (1),
+
+.SH COPYRIGHT
+.PP
+Cotlensk 2022. All rights reserved.
+
+.SH CREDITS
+.PP
+This man page was created with the help of a template provided by Deepak Prasad <admin@golinuxcloud.com>
+
+.SH
+.PP
+Battleships_Online.sh(1)

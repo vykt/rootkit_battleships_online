@@ -1,0 +1,45 @@
+python 3.9
+
+No copied code. No copied algorithms. No asking stackoverflow.
+
+
+--- User guide:
+
+man ./user_guide.1
+
+
+--- Modules:
+
+sys
+copy
+datetime
+random
+socket
+
+
+ --- Documentation:
+
+See the block comment on top of each file for overview. Briefly:
+
+1) Battleships_Online.sh runs menu.py
+
+2) menu.py progresses the user through around 4 main menues, first
+   setting up a connection and then building the game.
+
+3) The menues call upon draw.py for major print statements and drawing
+   maps.
+
+4) map.py handles all map operations, as well as high level communication
+   between the two players' maps.
+
+5) game.py handles low level sockets and catches their exceptions, as well
+   as storing exit functions for the program in case of connection break.
+
+
+				 menu.py
+			   	   |
+		   ------------------
+		  |         |        |
+	  draw.py     map.py   game.py
+	  				 |
+				   game.py
